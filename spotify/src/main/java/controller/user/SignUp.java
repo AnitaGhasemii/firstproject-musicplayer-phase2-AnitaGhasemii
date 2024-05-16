@@ -1,4 +1,6 @@
 package controller.user;
+import model.exception.FailedLogInException.UserNotFoundException;
+import model.exception.InvalidFormatException;
 import model.DataBase;
 import model.userAcc.Artist.Artist;
 import model.userAcc.Artist.Podcaster;
@@ -21,7 +23,7 @@ public class SignUp {
         return signUpInstance;
     }
 
-    public String checkNewAcc(String data){
+    public String checkNewAcc(String data) throws UserNotFoundException, InvalidFormatException {
         String[] signInData = data.split("-");
         if(Objects.equals(signInData[1], "L")){
             return signUpListener(data);
@@ -39,16 +41,18 @@ public class SignUp {
     }
 
 
-    public String signUpListener(String signInInformation) {
+    public String signUpListener(String signInInformation) throws InvalidFormatException, UserNotFoundException {
         String[] signInInformations = signInInformation.split("-");
         if (!Checker.checkEmail(signInInformations[5])) {
-            return "Your email is wrong";
+            throw new InvalidFormatException();
         } else {
             if (!Checker.checkPhoneNumber(signInInformations[6])) {
-                return "Your phoneNumber is wrong";
+                throw new InvalidFormatException();
+
             } else {
                 if (Checker.findUser(signInInformations[2])) {
-                    return "this user name already exists";
+                    throw new UserNotFoundException();
+
                 } else {
                    Free newListener = new Free(signInInformations[2], signInInformations[3],
                             signInInformations[4], signInInformations[5], signInInformations[6], signInInformations[7]);
@@ -60,16 +64,16 @@ public class SignUp {
             }
         }
     }
-    public String signUpSinger(String signInInformation) {
+    public String signUpSinger(String signInInformation) throws InvalidFormatException, UserNotFoundException {
         String[] signInInformationsSinger = signInInformation.split("-");
         if (!Checker.checkEmail(signInInformationsSinger[5])) {
-            return "Your email is wrong";
+            throw new InvalidFormatException();
         } else {
             if (!Checker.checkPhoneNumber(signInInformationsSinger[6])) {
-                return "Your phoneNumber is wrong";
+                throw new InvalidFormatException();
             } else {
                 if (Checker.findUser(signInInformationsSinger[2])) {
-                    return "this user name already exists";
+                    throw new UserNotFoundException();
                 } else {
                     Singer newSinger = new Singer(signInInformationsSinger[2], signInInformationsSinger[3],
                             signInInformationsSinger[4], signInInformationsSinger[5], signInInformationsSinger[6], signInInformationsSinger[7],signInInformationsSinger[8]);
@@ -82,16 +86,16 @@ public class SignUp {
             }
         }
     }
-    public String signUpPodcaster(String signInInformation) {
+    public String signUpPodcaster(String signInInformation) throws InvalidFormatException, UserNotFoundException {
         String[] signInInformationsArtist = signInInformation.split("-");
         if (!Checker.checkEmail(signInInformationsArtist[5])) {
-            return "Your email is wrong";
+            throw new InvalidFormatException();
         } else {
             if (!Checker.checkPhoneNumber(signInInformationsArtist[6])) {
-                return "Your phoneNumber is wrong";
+                throw new InvalidFormatException();
             } else {
                 if (Checker.findUser(signInInformationsArtist[2])) {
-                    return "this user name already exists";
+                    throw new UserNotFoundException();
                 } else {
                     Podcaster newPodcaster = new  Podcaster(signInInformationsArtist[2], signInInformationsArtist[3],
                             signInInformationsArtist[4], signInInformationsArtist[5], signInInformationsArtist[6], signInInformationsArtist[7],signInInformationsArtist[8]);

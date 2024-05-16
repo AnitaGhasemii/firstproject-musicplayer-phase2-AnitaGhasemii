@@ -1,9 +1,11 @@
 package controller.user;
 
 
+import model.exception.FreeAccountLimitException;
 import model.*;
 import model.audio.Audio;
 import model.audio.Music;
+import model.exception.LowCreditException;
 import model.userAcc.Artist.Artist;
 import model.userAcc.Listener.Free;
 import model.userAcc.Listener.Listener;
@@ -67,7 +69,7 @@ public class ListenerControl {
     }
 
 
-    public String newPlaylist(String PlaylistData) {
+    public String newPlaylist(String PlaylistData) throws FreeAccountLimitException {
 
         if (Listener.getListener() instanceof Free) {
             return newPlaylist((Free) Listener.getListener(), PlaylistData);
@@ -78,7 +80,7 @@ public class ListenerControl {
         return "";
     }
 
-    public String newPlaylist(Free listener, String PlaylistData) {
+    public String newPlaylist(Free listener, String PlaylistData) throws FreeAccountLimitException {
        // String[] PlaylistsDataFr = PlaylistData.split("-");
 
         if (((Free) Listener.getListener()).getCountPlaylist() <= ((Free) Listener.getListener()).getAddPlaylistLimit()) {
@@ -86,7 +88,8 @@ public class ListenerControl {
             ((Free) Listener.getListener()).setCountPlaylist(((Free) Listener.getListener()).getCountPlaylist() + 1);
             return "new play list added";
         } else {
-            return "maximum number of play lists (3) reached";
+            throw new FreeAccountLimitException();
+            //return "maximum number of play lists (3) reached";
         }
     }
 
@@ -97,7 +100,7 @@ public class ListenerControl {
 
     }
 
-    public String addMusicToPlayList(String MusicToPlayList) {
+    public String addMusicToPlayList(String MusicToPlayList) throws FreeAccountLimitException {
 
         if (Listener.getListener() instanceof Free) {
             return addMusicToPlayList((Free) Listener.getListener(), MusicToPlayList);
@@ -108,7 +111,7 @@ public class ListenerControl {
         return "";
     }
 
-    public String addMusicToPlayList(Free listener, String MusicToPlayList) {
+    public String addMusicToPlayList(Free listener, String MusicToPlayList) throws FreeAccountLimitException {
         String[] MusicToPlayListDataFr = MusicToPlayList.split("-");
         for (Playlist playlistName : Listener.getListener().getPlaylists()) {
             if (Objects.equals(playlistName.getPlaylistName(), MusicToPlayListDataFr[1])) {
@@ -120,7 +123,8 @@ public class ListenerControl {
                         }
                     }
                 } else {
-                    return "you've reached the limit of adding tracks to this play list(10)";
+                    throw new FreeAccountLimitException();
+                   // return "you've reached the limit of adding tracks to this play list(10)";
                 }
             }
         }
@@ -307,10 +311,9 @@ public class ListenerControl {
     }
 
 
-    public String getPremium(PremiumSubscriptionPackages subscriptionPackages) {
+    public String getPremium(PremiumSubscriptionPackages subscriptionPackages) throws LowCreditException {
         if (subscriptionPackages == PremiumSubscriptionPackages.sixMonths) {
             if (Listener.getListener() instanceof Free) {
-
                 if (Listener.getListener().getAccountCredit() >=
                         PremiumSubscriptionPackages.sixMonths.getMoney()) {
                     Listener.getListener().setAccountCredit(Listener.getListener().getAccountCredit() -
@@ -321,6 +324,9 @@ public class ListenerControl {
                     premiumTime(premium, 180);
                     premium.setExpirationDate(LocalDate.now().plusDays(180));
                     return "your account is premium now";
+                }
+                else {
+                    throw new LowCreditException();
                 }
             }
             if (subscriptionPackages == PremiumSubscriptionPackages.oneMonth) {
@@ -335,6 +341,9 @@ public class ListenerControl {
                     premium.setExpirationDate(LocalDate.now().plusDays(30));
                     return "your account is premium now";
                 }
+                else {
+                    throw new LowCreditException();
+                }
             }
 
             if (subscriptionPackages == PremiumSubscriptionPackages.twoMonths) {
@@ -348,6 +357,8 @@ public class ListenerControl {
                     premiumTime(premium, 60);
                     premium.setExpirationDate(LocalDate.now().plusDays(60));
                     return "your account is premium now";
+                }else {
+                    throw new LowCreditException();
                 }
 
             }
@@ -364,6 +375,9 @@ public class ListenerControl {
 
                 return "new package purchased";
             }
+            else {
+                throw new LowCreditException();
+            }
         }
         if (subscriptionPackages == PremiumSubscriptionPackages.oneMonth) {
             if (Listener.getListener().getAccountCredit() >=
@@ -373,6 +387,9 @@ public class ListenerControl {
                 premiumTime((Premium) Premium.getListener(), 30);
                 ((Premium) Listener.getListener()).setLeftSubscription(((Premium) Listener.getListener()).getLeftSubscription()+30);
                 return "new package purchased";
+            }
+            else {
+                throw new LowCreditException();
             }
         }
 
@@ -385,6 +402,9 @@ public class ListenerControl {
                 ((Premium) Listener.getListener()).setLeftSubscription(((
                         Premium) Listener.getListener()).getLeftSubscription()+60);
                 return "new package purchased";
+            }
+            else {
+                throw new LowCreditException();
             }
 
 
