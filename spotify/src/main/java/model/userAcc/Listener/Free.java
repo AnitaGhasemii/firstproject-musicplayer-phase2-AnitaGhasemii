@@ -2,6 +2,7 @@ package model.userAcc.Listener;
 
 import model.Genre;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Free extends Listener {
@@ -35,7 +36,7 @@ public class Free extends Listener {
         this.countPlaylist = countPlaylist;
     }
 
-    public Free(String userName, String password, String nameAndFamily, String email, String phoneNumber, String birthday) {
+    public Free(String userName, String password, String nameAndFamily, String email, String phoneNumber, LocalDate birthday) {
         super(userName, password, nameAndFamily, email, phoneNumber,birthday);
     }
 }

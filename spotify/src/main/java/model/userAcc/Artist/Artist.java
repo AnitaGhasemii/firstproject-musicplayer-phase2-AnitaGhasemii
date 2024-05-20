@@ -2,6 +2,7 @@ package model.userAcc.Artist;
 
 import model.userAcc.User;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Artist  extends User
@@ -47,7 +48,7 @@ public class Artist  extends User
         this.biography = biography;
     }
 
-    public Artist(String userName, String password, String nameAndFamily, String email, String phoneNumber, String birthday, String biography) {
+    public Artist(String userName, String password, String nameAndFamily, String email, String phoneNumber, LocalDate birthday, String biography) {
         super(userName, password, nameAndFamily, email, phoneNumber,birthday);
 
         this.biography = biography;

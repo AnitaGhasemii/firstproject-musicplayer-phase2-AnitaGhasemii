@@ -3,6 +3,7 @@ package model.userAcc.Artist;
 import model.audio.Podcast;
 import model.userAcc.User;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Podcaster  extends Artist{
@@ -16,7 +17,7 @@ public class Podcaster  extends Artist{
         this.podcasts.add(podcasts);
     }
 
-    public Podcaster(String userName, String password, String nameAndFamily, String email, String phoneNumber,String birthday, String biography) {
+    public Podcaster(String userName, String password, String nameAndFamily, String email, String phoneNumber, LocalDate birthday, String biography) {
         super(userName, password, nameAndFamily, email, phoneNumber,birthday, biography);
 
     }

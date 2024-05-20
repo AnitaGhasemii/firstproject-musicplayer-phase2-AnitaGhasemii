@@ -1,5 +1,8 @@
 package model.userAcc;
 
+import model.DataBase;
+import model.userAcc.Listener.Listener;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -80,8 +83,8 @@ public class User {
 
    static int IDcount=1;
 
-    public User( String userName, String password, String nameAndFamily, String email, String phoneNumber,String birthday) {
-        DateTimeFormatter birth= DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    public User( String userName, String password, String nameAndFamily, String email, String phoneNumber,LocalDate birthday) {
+
         this.ID = IDcount;
         IDcount++;
         this.userName = userName;
@@ -89,8 +92,9 @@ public class User {
         this.nameAndFamily = nameAndFamily;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.birthday = LocalDate.parse(birthday,birth);
+        this.birthday = birthday;
 
+        DataBase.getDataBase().setUsers(this);
     }
 
     @Override
