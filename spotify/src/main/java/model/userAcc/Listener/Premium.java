@@ -15,7 +15,7 @@ public class Premium extends Listener{
         this.leftSubscription = leftSubscription;
     }
 
-    public Premium(String userName, String password, String nameAndFamily, String email, String phoneNumber, String birthday) {
+    public Premium(String userName, String password, String nameAndFamily, String email, String phoneNumber, LocalDate birthday) {
         super(userName, password, nameAndFamily, email, phoneNumber,birthday);
     }
 }
