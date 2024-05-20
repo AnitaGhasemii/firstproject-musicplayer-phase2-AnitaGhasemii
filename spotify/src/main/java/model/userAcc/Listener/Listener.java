@@ -77,7 +77,7 @@ public class Listener extends User {
         this.expirationDate = expirationDate;
     }
 
-    public Listener(String userName, String password, String nameAndFamily, String email, String phoneNumber, String birthday) {
+    public Listener(String userName, String password, String nameAndFamily, String email, String phoneNumber, LocalDate birthday) {
         super(userName, password, nameAndFamily, email, phoneNumber,birthday);
 
 
