@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #151515;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.spotify.ListenerFxmlController">
+    <children>
+        <PasswordField fx:id="searchField" accessibleRole="TEXT_FIELD" layoutX="115.0" layoutY="15.0" prefHeight="29.0" prefWidth="149.0" style="-fx-background-color: #C0C0C0;" />
+        <Button fx:id="searchButt" layoutX="265.0" layoutY="16.0" mnemonicParsing="false" onMouseClicked="#searchButtC" prefHeight="18.0" prefWidth="69.0" style="-fx-background-color: #151515;" text="SEARCH🔍" textFill="WHITE">
+            <font>
+                <Font name="Andalus" size="12.0" />
+            </font>
+        </Button>
+      <Button layoutX="492.0" layoutY="17.0" mnemonicParsing="false" onMouseClicked="#premiumC" style="-fx-background-color: #8A1830;" text="GET PREMIUM⚡" textFill="WHITE" />
+      <HBox layoutX="115.0" layoutY="91.0" prefHeight="100.0" prefWidth="229.0">
+         <children>
+            <VBox prefHeight="100.0" prefWidth="127.0" spacing="4.0">
+               <children>
+                  <Label prefHeight="36.0" prefWidth="165.0" text="LISTENER NAME" textFill="WHITE">
+                     <font>
+                        <Font name="Freestyle Script" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="94.0" text="USERNAME" textFill="WHITE">
+                     <font>
+                        <Font name="Freestyle Script" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label text="PASSWORD" textFill="WHITE">
+                     <font>
+                        <Font name="Freestyle Script" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label text="POHNE NUMBER" textFill="WHITE">
+                     <font>
+                        <Font name="Freestyle Script" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label text="E-MAIL" textFill="WHITE">
+                     <font>
+                        <Font name="Freestyle Script" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="100.0" prefWidth="96.0" spacing="9.0">
+               <children>
+                  <Label fx:id="nameLable" text="Label" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="usernameLable" text="Label" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="passwordLable" text="Label" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="phoneLable" text="Label" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="emailLable" text="Label" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <ScrollPane hbarPolicy="NEVER" layoutX="342.0" layoutY="100.0" prefHeight="224.0" prefWidth="243.0">
+         <content>
+            <VBox fx:id="playlist" alignment="TOP_CENTER" prefHeight="225.0" prefWidth="245.0" style="-fx-background-color: #151515;" />
+         </content>
+      </ScrollPane>
+      <Button fx:id="addPlayList" layoutX="228.0" layoutY="269.0" mnemonicParsing="false" onMouseClicked="#addPlaylistC" style="-fx-background-color: #8A1830;" text="add" textFill="WHITE" />
+      <Label layoutX="114.0" layoutY="241.0" text="new playlist" textFill="WHITE">
+         <font>
+            <Font name="Andalus" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="playlistNameF" layoutX="114.0" layoutY="269.0" prefHeight="25.0" prefWidth="100.0" />
+      <Label layoutX="436.0" layoutY="69.0" text="PLAYLISTS" textFill="WHITE">
+         <font>
+            <Font name="Freestyle Script" size="16.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="playBar" layoutY="324.0" prefHeight="78.0" prefWidth="600.0" />
+      <AnchorPane fx:id="sideBar" layoutX="7.0" prefHeight="327.0" prefWidth="100.0" />
+    </children>
+    <opaqueInsets>
+        <Insets />
+    </opaqueInsets>
+</AnchorPane>
