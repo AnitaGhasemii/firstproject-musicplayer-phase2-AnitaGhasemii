@@ -9,6 +9,7 @@ import model.userAcc.Listener.Free;
 import model.userAcc.Listener.Listener;
 
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 
@@ -22,40 +23,20 @@ public class SignUp {
         }
         return signUpInstance;
     }
-
-    public String checkNewAcc(String data) throws UserNotFoundException, InvalidFormatException {
-        String[] signInData = data.split("-");
-        if(Objects.equals(signInData[1], "L")){
-            return signUpListener(data);
-
-        }
-        if(Objects.equals(signInData[1], "S")){
-            return signUpSinger(data);
-
-        }
-        if(Objects.equals(signInData[1], "P")){
-            return signUpPodcaster(data);
-
-        }
-        return "";
-    }
-
-
-    public String signUpListener(String signInInformation) throws InvalidFormatException, UserNotFoundException {
-        String[] signInInformations = signInInformation.split("-");
-        if (!Checker.checkEmail(signInInformations[5])) {
+    public String signUpListener(String userName, String password, String nameAndFamily, String email, String phoneNumber, LocalDate birthday) throws InvalidFormatException, UserNotFoundException {
+        if (!Checker.checkEmail(email)) {
             throw new InvalidFormatException();
         } else {
-            if (!Checker.checkPhoneNumber(signInInformations[6])) {
+            if (!Checker.checkPhoneNumber(phoneNumber)) {
                 throw new InvalidFormatException();
 
             } else {
-                if (Checker.findUser(signInInformations[2])) {
+                if (Checker.findUser(userName)) {
                     throw new UserNotFoundException();
 
                 } else {
-                   Free newListener = new Free(signInInformations[2], signInInformations[3],
-                            signInInformations[4], signInInformations[5], signInInformations[6], signInInformations[7]);
+                   Free newListener = new Free(userName, password,
+                            nameAndFamily, email,phoneNumber, birthday);
                     DataBase.getDataBase().setUsers(newListener);
                     Listener.setListener(newListener);
                     return "welcome new listener";
@@ -64,19 +45,17 @@ public class SignUp {
             }
         }
     }
-    public String signUpSinger(String signInInformation) throws InvalidFormatException, UserNotFoundException {
-        String[] signInInformationsSinger = signInInformation.split("-");
-        if (!Checker.checkEmail(signInInformationsSinger[5])) {
+    public String signUpSinger(String userName, String password, String nameAndFamily, String email, String phoneNumber, LocalDate birthday, String biography) throws InvalidFormatException, UserNotFoundException {
+        if (!Checker.checkEmail(email)) {
             throw new InvalidFormatException();
         } else {
-            if (!Checker.checkPhoneNumber(signInInformationsSinger[6])) {
+            if (!Checker.checkPhoneNumber(phoneNumber)) {
                 throw new InvalidFormatException();
             } else {
-                if (Checker.findUser(signInInformationsSinger[2])) {
+                if (Checker.findUser(userName)) {
                     throw new UserNotFoundException();
                 } else {
-                    Singer newSinger = new Singer(signInInformationsSinger[2], signInInformationsSinger[3],
-                            signInInformationsSinger[4], signInInformationsSinger[5], signInInformationsSinger[6], signInInformationsSinger[7],signInInformationsSinger[8]);
+                    Singer newSinger = new Singer( userName,  password,  nameAndFamily,  email,  phoneNumber, birthday,  biography);
                     DataBase.getDataBase().setUsers(newSinger);
                     Artist.setMainArtist(newSinger);
 
@@ -86,19 +65,18 @@ public class SignUp {
             }
         }
     }
-    public String signUpPodcaster(String signInInformation) throws InvalidFormatException, UserNotFoundException {
-        String[] signInInformationsArtist = signInInformation.split("-");
-        if (!Checker.checkEmail(signInInformationsArtist[5])) {
+    public String signUpPodcaster(String userName, String password, String nameAndFamily, String email, String phoneNumber,LocalDate birthday, String biography) throws InvalidFormatException, UserNotFoundException {
+        if (!Checker.checkEmail(email)) {
             throw new InvalidFormatException();
         } else {
-            if (!Checker.checkPhoneNumber(signInInformationsArtist[6])) {
+            if (!Checker.checkPhoneNumber(phoneNumber)) {
                 throw new InvalidFormatException();
             } else {
-                if (Checker.findUser(signInInformationsArtist[2])) {
+                if (Checker.findUser(userName)) {
                     throw new UserNotFoundException();
                 } else {
-                    Podcaster newPodcaster = new  Podcaster(signInInformationsArtist[2], signInInformationsArtist[3],
-                            signInInformationsArtist[4], signInInformationsArtist[5], signInInformationsArtist[6], signInInformationsArtist[7],signInInformationsArtist[8]);
+                    Podcaster newPodcaster = new  Podcaster(userName, password,
+                          nameAndFamily, email, phoneNumber, birthday,biography);
                     DataBase.getDataBase().setUsers(newPodcaster);
                     Artist.setMainArtist(newPodcaster);
 
