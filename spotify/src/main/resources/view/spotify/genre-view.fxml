@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainAnchor" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #151515;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.spotify.genreFxmlController">
+   <children>
+      <GridPane fx:id="mainGride" alignment="CENTER" gridLinesVisible="true" hgap="3.0" layoutX="124.0" layoutY="71.0" prefHeight="344.0" prefWidth="378.0" AnchorPane.leftAnchor="124.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <AnchorPane fx:id="aprock" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="88.0" fitWidth="100.0" layoutX="18.0" layoutY="14.0" onMouseClicked="#rockC" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/rock.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="aphipHop" prefHeight="104.0" prefWidth="126.0" GridPane.rowIndex="1">
+               <children>
+                  <ImageView fitHeight="88.0" fitWidth="100.0" layoutX="18.0" layoutY="14.0" onMouseClicked="#hipC" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/photo_5927203930071221119_y.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="appop" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <children>
+                  <ImageView fitHeight="88.0" fitWidth="100.0" layoutX="18.0" layoutY="14.0" onMouseClicked="#popC" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/pop.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="apjazz" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+               <children>
+                  <ImageView fitHeight="88.0" fitWidth="100.0" layoutX="19.0" layoutY="8.0" onMouseClicked="#jazzC" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/jazz.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="ap11" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <ImageView fitHeight="88.0" fitWidth="100.0" layoutX="18.0" layoutY="14.0" onMouseClicked="#countryC" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/photo_5927203930071221120_y.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="aptrueCrim" prefHeight="115.0" prefWidth="103.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <children>
+                  <ImageView fitHeight="88.0" fitWidth="100.0" layoutX="18.0" layoutY="7.0" onMouseClicked="#trueC" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/photo_5927203930071221121_y%20(1).jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="apInterview" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <ImageView fitHeight="88.0" fitWidth="100.0" layoutX="13.0" layoutY="7.0" onMouseClicked="#interC" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/photo_5927203930071221123_y.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="apHistory" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <children>
+                  <ImageView fitHeight="88.0" fitWidth="100.0" layoutX="14.0" layoutY="13.0" onMouseClicked="#historyC" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/photo_5927203930071221124_y.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="apSociety" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+               <children>
+                  <ImageView fitHeight="88.0" fitWidth="100.0" layoutX="20.0" layoutY="8.0" onMouseClicked="#societyC" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/photo_5927203930071221122_y.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </GridPane>
+      <Button fx:id="backButton" layoutX="21.0" layoutY="354.0" mnemonicParsing="false" onMouseClicked="#backClicked" prefHeight="32.0" prefWidth="60.0" style="-fx-background-color: A91D3A;" text="Back" textFill="WHITE">
+         <font>
+            <Font name="Andalus" size="13.0" />
+         </font></Button>
+      <Button fx:id="applyButton" layoutX="520.0" layoutY="354.0" mnemonicParsing="false" onMouseClicked="#applyClicked" prefHeight="32.0" prefWidth="60.0" style="-fx-background-color: #A91D3A;" text="Apply" textFill="WHITE">
+         <font>
+            <Font name="Andalus" size="14.0" />
+         </font></Button>
+      <Label fx:id="titleLable" alignment="CENTER" layoutX="136.0" layoutY="23.0" prefHeight="49.0" prefWidth="328.0" text="choose your favorite genre" textFill="#eeeeee">
+         <font>
+            <Font name="Freestyle Script" size="44.0" />
+         </font></Label>
+   </children>
+</AnchorPane>
