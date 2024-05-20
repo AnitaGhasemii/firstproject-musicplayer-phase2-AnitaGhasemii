@@ -5,6 +5,8 @@ import model.Genre;
 import model.audio.Audio;
 import model.audio.Music;
 import model.audio.Podcast;
+import model.exception.FailedLogInException.UserNotFoundException;
+import model.exception.InvalidFormatException;
 import model.userAcc.Artist.Artist;
 import model.userAcc.Artist.Podcaster;
 import model.userAcc.Artist.Singer;
@@ -24,24 +26,6 @@ public class ArtistControl {
     }
 
 
-    public String signUpArtist(String signInInformation) {
-        String[] signInInformationsAr = signInInformation.split("-");
-        if (!checkEmail(signInInformationsAr[5])) {
-            return "Your email is wrong";
-        } else {
-            if (!checkPhoneNumber(signInInformationsAr[6])) {
-                return "Your phoneNumber is wrong";
-            } else {
-                if (findUser(signInInformationsAr[2])) {
-                    return "this user name already exists";
-                } else {
-                    Artist nACC = new Artist(signInInformationsAr[2], signInInformationsAr[3],
-                            signInInformationsAr[4], signInInformationsAr[5], signInInformationsAr[6], signInInformationsAr[7], signInInformationsAr[8]);
-                    return "Your account has been successfully created";
-                }
-            }
-        }
-    }
 
     public String showFollowers() {
         StringBuilder sbFollowers = new StringBuilder("");

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="ScrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #151515;" stylesheets="@ScrollPane.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.spotify.ArtistDataFxmlController">
+    <children>
+      <ImageView fitHeight="333.0" fitWidth="507.0" layoutX="94.0">
+         <image>
+            <Image url="@../../../../../../../2101e317f19a8b3a02564f694c67584a.jpg" />
+         </image>
+      </ImageView>
+        <PasswordField fx:id="searchField" layoutX="115.0" layoutY="1.0" prefHeight="29.0" prefWidth="149.0" style="-fx-background-color: #151515;" />
+        <Button fx:id="searchButt" layoutX="265.0" layoutY="2.0" mnemonicParsing="false" onMouseClicked="#searchButtC" prefHeight="18.0" prefWidth="69.0" style="-fx-background-color: #151515;" text="SEARCH🔍" textFill="WHITE">
+            <font>
+                <Font name="Andalus" size="12.0" />
+            </font>
+        </Button>
+      <Label fx:id="artistName" layoutX="115.0" layoutY="46.0" prefHeight="78.0" prefWidth="239.0" style="-fx-background-color: #2 15151512121;" text="artist name" textFill="WHITE">
+         <font>
+            <Font name="Freestyle Script" size="56.0" />
+         </font>
+      </Label>
+      <Button fx:id="followButt" layoutX="223.0" layoutY="135.0" mnemonicParsing="false" onMouseClicked="#FollowButtC" prefHeight="29.0" prefWidth="84.0" style="-fx-background-color: #A91D3A;" text="⭐follow" textFill="WHITE" />
+      <ScrollPane hbarPolicy="NEVER" layoutX="360.0" layoutY="52.0" prefHeight="269.0" prefWidth="231.0">
+        <content>
+          <AnchorPane fx:id="ScrollPane" minHeight="0.0" minWidth="0.0" prefHeight="267.0" prefWidth="219.0" stylesheets="@ScrollPane.css">
+               <children>
+                  <VBox fx:id="audiosVBox" prefHeight="269.0" prefWidth="217.0" />
+               </children></AnchorPane>
+        </content>
+      </ScrollPane>
+      <Label fx:id="followersNumber" layoutX="102.0" layoutY="136.0" prefHeight="28.0" prefWidth="127.0" text="followers" textFill="WHITE" />
+      <AnchorPane fx:id="sideBar" layoutX="1.0" layoutY="-4.0" prefHeight="339.0" prefWidth="90.0" />
+      <AnchorPane fx:id="playBar" layoutY="334.0" prefHeight="65.0" prefWidth="600.0" />
+      <Label fx:id="report" layoutX="102.0" layoutY="191.0" text="REPORT" textFill="WHITE" />
+      <TextArea fx:id="reportText" layoutX="101.0" layoutY="222.0" prefHeight="89.0" prefWidth="161.0" />
+      <Button fx:id="reportButt" layoutX="274.0" layoutY="285.0" mnemonicParsing="false" onMouseClicked="#reportC" style="-fx-background-color: #A91D3A;" text="report" textFill="WHITE" />
+    </children>
+    <opaqueInsets>
+        <Insets />
+    </opaqueInsets>
+</AnchorPane>
